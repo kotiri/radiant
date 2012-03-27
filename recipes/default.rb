@@ -55,9 +55,11 @@ execute "radiant_generate" do
 end
 
 apache2_web_app appname do
-  docroot "/srv/#{appname}/current/public"
   template "#{appname}.conf.erb"
-  server_name "#{appname}.#{node['domain']}"
-  server_aliases [ appname, node['hostname'] ]
-  rails_env node['radiant']['environment']
+  params({
+    'docroot' => "/srv/#{appname}/current/public",
+    'server_name' => "#{appname}.#{node['domain']}",
+    'server_aliases' => [ appname, node['hostname'] ],
+    'rails_env' => node['radiant']['environment']
+  })
 end
