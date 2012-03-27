@@ -54,7 +54,7 @@ execute "radiant_generate" do
   user "railsdev"
 end
 
-web_app appname do
+apache2_web_app appname do
   docroot "/srv/#{appname}/current/public"
   template "#{appname}.conf.erb"
   server_name "#{appname}.#{node['domain']}"
