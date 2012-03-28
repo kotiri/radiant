@@ -31,19 +31,19 @@ Opscode cookbooks (http://github.com/opscode/cookbooks/tree/master)
 Attributes
 ==========
 
-* radiant[:edge] - Do a deploy from github repo if true, use gems if false, default false.
-* radiant[:branch] - Branch to deploy from, default HEAD.
-* radiant[:migrate] - Whether to do a database migration, default false.
-* radiant[:migrate_command] - Command to do a database migration, default 'rake db:migrate'.
-* radiant[:environment] - Rails environment to use, default is production.
-* radiant[:revision] - Revision to deploy, default HEAD.
-* radiant[:action] - Whether to deploy, rollback or nothing, default nothing.
-* radiant[:db_bootstrap] - rake task to bootstrap a fresh database, use once and with care, it will delete the database contents.
+* radiant['edge'] - Do a deploy from github repo if true, use gems if false, default false.
+* radiant['branch'] - Branch to deploy from, default HEAD.
+* radiant['migrate'] - Whether to do a database migration, default false.
+* radiant['migrate_command'] - Command to do a database migration, default 'rake db:migrate'.
+* radiant['environment'] - Rails environment to use, default is production.
+* radiant['revision'] - Revision to deploy, default HEAD.
+* radiant['action'] - Whether to deploy, rollback or nothing, default nothing.
+* radiant['db_bootstrap'] - rake task to bootstrap a fresh database, use once and with care, it will delete the database contents.
 
 Usage
 =====
 
-This recipe uses SQLite3 for the database by default. To set up the default database to get Radiant rolling, run a db:bootstrap by changing the radiant[:migrate] command to the following in the webui:
+This recipe uses SQLite3 for the database by default. To set up the default database to get Radiant rolling, run a db:bootstrap by changing the radiant['migrate'] command to the following in the webui:
 
   yes | rake production db:bootstrap \
     ADMIN_NAME=Administrator \
